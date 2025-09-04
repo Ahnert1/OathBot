@@ -119,7 +119,7 @@ async function updateGuildStatus() {
 
         // Add summary at the top
         const summary = `Online Players: ${totalOnline}\n`;
-        response = summary + response + '```' + '\n' + 'Last updated: ' + new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).format(new Date());
+        response = summary + response + '```' + '\n' + 'Last updated: ' + currentTimestamp();
 
         // Check if response is too long
         if (response.length > 1900) {
@@ -161,6 +161,16 @@ async function getYesterdayPlayerLevels() {
     } catch (error) {
         return null;
     }
+}
+
+function currentTimestamp() {
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    return `${day}/${month}/${year}, ${hours}:${minutes}`;
 }
 
 function getYmdInTimeZone(date, timeZone) {
