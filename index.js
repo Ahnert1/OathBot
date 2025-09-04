@@ -119,7 +119,7 @@ async function updateGuildStatus() {
 
         // Add summary at the top
         const summary = `Online Players: ${totalOnline}\n`;
-        response = summary + response + '```' + '\n' + 'Last updated: ' + new Date().toLocaleString();
+        response = summary + response + '```' + '\n' + 'Last updated: ' + new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).format(new Date());
 
         // Check if response is too long
         if (response.length > 1900) {
