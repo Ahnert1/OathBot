@@ -1,0 +1,489 @@
+{
+  "timestamp": "2025-08-28T14:00:26.599Z",
+  "players": {
+    "Brill": {
+      "level": 131,
+      "vocation": "Royal Paladin"
+    },
+    "Bibir": {
+      "level": 161,
+      "vocation": "Royal Paladin"
+    },
+    "Chillin Chillin": {
+      "level": 67,
+      "vocation": "Elite Knight"
+    },
+    "Deviannt": {
+      "level": 198,
+      "vocation": "Master Sorcerer"
+    },
+    "Exfoliator": {
+      "level": 112,
+      "vocation": "Royal Paladin"
+    },
+    "Mseco": {
+      "level": 84,
+      "vocation": "Royal Paladin"
+    },
+    "Vergzi": {
+      "level": 125,
+      "vocation": "Elite Knight"
+    },
+    "Chadim": {
+      "level": 131,
+      "vocation": "Royal Paladin"
+    },
+    "Godlike": {
+      "level": 109,
+      "vocation": "Elite Knight"
+    },
+    "Mardoll": {
+      "level": 94,
+      "vocation": "Elder Druid"
+    },
+    "Sourdough": {
+      "level": 100,
+      "vocation": "Elite Knight"
+    },
+    "Trolljagaren": {
+      "level": 126,
+      "vocation": "Master Sorcerer"
+    },
+    "Aldruhn": {
+      "level": 87,
+      "vocation": "Royal Paladin"
+    },
+    "Arwen Undomiel": {
+      "level": 88,
+      "vocation": "Elder Druid"
+    },
+    "Bananaboi": {
+      "level": 41,
+      "vocation": "Elite Knight"
+    },
+    "Big Sexy": {
+      "level": 34,
+      "vocation": "Knight"
+    },
+    "Creeping Death": {
+      "level": 94,
+      "vocation": "Elite Knight"
+    },
+    "Edena Pena": {
+      "level": 41,
+      "vocation": "Elite Knight"
+    },
+    "Hasse Fox": {
+      "level": 87,
+      "vocation": "Royal Paladin"
+    },
+    "Mercury": {
+      "level": 64,
+      "vocation": "Royal Paladin"
+    },
+    "Seek And Destroy": {
+      "level": 57,
+      "vocation": "Royal Paladin"
+    },
+    "Sparkie": {
+      "level": 63,
+      "vocation": "Royal Paladin"
+    },
+    "Vattes": {
+      "level": 142,
+      "vocation": "Elder Druid"
+    },
+    "A-boo-boo": {
+      "level": 53,
+      "vocation": "Royal Paladin"
+    },
+    "Alkemyst": {
+      "level": 96,
+      "vocation": "Elder Druid"
+    },
+    "Amber": {
+      "level": 57,
+      "vocation": "Elite Knight"
+    },
+    "Aphetto": {
+      "level": 33,
+      "vocation": "Elder Druid"
+    },
+    "Asterix": {
+      "level": 36,
+      "vocation": "Royal Paladin"
+    },
+    "Bad Luck": {
+      "level": 58,
+      "vocation": "Master Sorcerer"
+    },
+    "Biggus Diccus": {
+      "level": 34,
+      "vocation": "Royal Paladin"
+    },
+    "Biscuit": {
+      "level": 59,
+      "vocation": "Royal Paladin"
+    },
+    "Black Digivice": {
+      "level": 59,
+      "vocation": "Royal Paladin"
+    },
+    "Blapster": {
+      "level": 38,
+      "vocation": "Knight"
+    },
+    "Bnana": {
+      "level": 20,
+      "vocation": "Elder Druid"
+    },
+    "Bueu Mago": {
+      "level": 78,
+      "vocation": "Master Sorcerer"
+    },
+    "Canabissx": {
+      "level": 29,
+      "vocation": "Royal Paladin"
+    },
+    "Casualty": {
+      "level": 28,
+      "vocation": "Royal Paladin"
+    },
+    "Chantler": {
+      "level": 20,
+      "vocation": "Paladin"
+    },
+    "Charger": {
+      "level": 22,
+      "vocation": "Elder Druid"
+    },
+    "Chase Dark": {
+      "level": 18,
+      "vocation": "Knight"
+    },
+    "Chronic Chaos": {
+      "level": 29,
+      "vocation": "Royal Paladin"
+    },
+    "Ciroc": {
+      "level": 42,
+      "vocation": "Master Sorcerer"
+    },
+    "Dingo": {
+      "level": 11,
+      "vocation": "Druid"
+    },
+    "Don Gonzalitos": {
+      "level": 56,
+      "vocation": "Royal Paladin"
+    },
+    "Don Mago": {
+      "level": 82,
+      "vocation": "Master Sorcerer"
+    },
+    "Exigency": {
+      "level": 51,
+      "vocation": "Elite Knight"
+    },
+    "Fast Mags": {
+      "level": 17,
+      "vocation": "Sorcerer"
+    },
+    "Flying High": {
+      "level": 45,
+      "vocation": "Elite Knight"
+    },
+    "Giobus Tansuz": {
+      "level": 26,
+      "vocation": "Royal Paladin"
+    },
+    "Giozera": {
+      "level": 31,
+      "vocation": "Royal Paladin"
+    },
+    "Giuseppe Ek Dura": {
+      "level": 27,
+      "vocation": "Elite Knight"
+    },
+    "Gladiator": {
+      "level": 22,
+      "vocation": "Knight"
+    },
+    "Gol D Roger": {
+      "level": 161,
+      "vocation": "Master Sorcerer"
+    },
+    "Grankebanke": {
+      "level": 38,
+      "vocation": "Master Sorcerer"
+    },
+    "Hairy Fairy": {
+      "level": 41,
+      "vocation": "Elder Druid"
+    },
+    "Hoagie": {
+      "level": 76,
+      "vocation": "Elite Knight"
+    },
+    "Ichibios": {
+      "level": 136,
+      "vocation": "Elder Druid"
+    },
+    "Idontknow": {
+      "level": 90,
+      "vocation": "Royal Paladin"
+    },
+    "Infected": {
+      "level": 78,
+      "vocation": "Master Sorcerer"
+    },
+    "Jackman": {
+      "level": 31,
+      "vocation": "Paladin"
+    },
+    "Justen Chillin": {
+      "level": 71,
+      "vocation": "Royal Paladin"
+    },
+    "Kelevera": {
+      "level": 45,
+      "vocation": "Royal Paladin"
+    },
+    "King Aragorn": {
+      "level": 126,
+      "vocation": "Royal Paladin"
+    },
+    "Kithmale": {
+      "level": 47,
+      "vocation": "Master Sorcerer"
+    },
+    "Lord Skunk": {
+      "level": 56,
+      "vocation": "Royal Paladin"
+    },
+    "Magsuki Aodhan": {
+      "level": 101,
+      "vocation": "Royal Paladin"
+    },
+    "Maharba": {
+      "level": 30,
+      "vocation": "Paladin"
+    },
+    "Marquis": {
+      "level": 20,
+      "vocation": "Master Sorcerer"
+    },
+    "Medonha": {
+      "level": 11,
+      "vocation": "Sorcerer"
+    },
+    "Menards": {
+      "level": 21,
+      "vocation": "Royal Paladin"
+    },
+    "Mergoo": {
+      "level": 29,
+      "vocation": "Master Sorcerer"
+    },
+    "Mikie": {
+      "level": 61,
+      "vocation": "Elder Druid"
+    },
+    "Mortimer": {
+      "level": 20,
+      "vocation": "Master Sorcerer"
+    },
+    "Mozza": {
+      "level": 75,
+      "vocation": "Royal Paladin"
+    },
+    "Paperzera": {
+      "level": 21,
+      "vocation": "Elite Knight"
+    },
+    "Peacekeeper": {
+      "level": 38,
+      "vocation": "Elder Druid"
+    },
+    "Princess Anna": {
+      "level": 49,
+      "vocation": "Knight"
+    },
+    "Pyre": {
+      "level": 34,
+      "vocation": "Paladin"
+    },
+    "Reya": {
+      "level": 39,
+      "vocation": "Elder Druid"
+    },
+    "Royal Peludin": {
+      "level": 103,
+      "vocation": "Royal Paladin"
+    },
+    "Sailor Of Fire": {
+      "level": 111,
+      "vocation": "Master Sorcerer"
+    },
+    "Sashimi Balls": {
+      "level": 182,
+      "vocation": "Royal Paladin"
+    },
+    "Saymor": {
+      "level": 122,
+      "vocation": "Elder Druid"
+    },
+    "Sd Mage": {
+      "level": 20,
+      "vocation": "Master Sorcerer"
+    },
+    "Seekanddestroy": {
+      "level": 8,
+      "vocation": "Sorcerer"
+    },
+    "Servion": {
+      "level": 39,
+      "vocation": "Royal Paladin"
+    },
+    "Seterictus": {
+      "level": 96,
+      "vocation": "Master Sorcerer"
+    },
+    "Shamanking": {
+      "level": 45,
+      "vocation": "Elder Druid"
+    },
+    "Sisyphus": {
+      "level": 16,
+      "vocation": "Druid"
+    },
+    "Super Duper": {
+      "level": 50,
+      "vocation": "Master Sorcerer"
+    },
+    "Symbionta": {
+      "level": 20,
+      "vocation": "Druid"
+    },
+    "Talla": {
+      "level": 66,
+      "vocation": "Elite Knight"
+    },
+    "Torch": {
+      "level": 53,
+      "vocation": "Royal Paladin"
+    },
+    "Tovak": {
+      "level": 46,
+      "vocation": "Elite Knight"
+    },
+    "Trivela": {
+      "level": 31,
+      "vocation": "Knight"
+    },
+    "Uh Sitter": {
+      "level": 12,
+      "vocation": "Druid"
+    },
+    "Umfrey Nightfall": {
+      "level": 34,
+      "vocation": "Elite Knight"
+    },
+    "We Should Buy A Bar": {
+      "level": 25,
+      "vocation": "Elder Druid"
+    },
+    "Wild Orc Rider": {
+      "level": 20,
+      "vocation": "Knight"
+    },
+    "Wowzers": {
+      "level": 44,
+      "vocation": "Master Sorcerer"
+    },
+    "Yo'akin": {
+      "level": 19,
+      "vocation": "Paladin"
+    },
+    "Yoki": {
+      "level": 12,
+      "vocation": "Sorcerer"
+    },
+    "Zanotti": {
+      "level": 156,
+      "vocation": "Elite Knight"
+    },
+    "Zechs": {
+      "level": 41,
+      "vocation": "Royal Paladin"
+    },
+    "Beast Of Darkness": {
+      "level": 38,
+      "vocation": "Paladin"
+    },
+    "Bhaalgorn": {
+      "level": 22,
+      "vocation": "Knight"
+    },
+    "Chadin": {
+      "level": 96,
+      "vocation": "Royal Paladin"
+    },
+    "Jonny Twosheds": {
+      "level": 48,
+      "vocation": "Elite Knight"
+    },
+    "Kachapka": {
+      "level": 50,
+      "vocation": "Paladin"
+    },
+    "Kyshama": {
+      "level": 52,
+      "vocation": "Master Sorcerer"
+    },
+    "Le Bored": {
+      "level": 49,
+      "vocation": "Elder Druid"
+    },
+    "Le Tired": {
+      "level": 32,
+      "vocation": "Royal Paladin"
+    },
+    "Levain": {
+      "level": 20,
+      "vocation": "Elder Druid"
+    },
+    "Lord Ironforge": {
+      "level": 70,
+      "vocation": "Sorcerer"
+    },
+    "Lord Of Kysh": {
+      "level": 24,
+      "vocation": "Royal Paladin"
+    },
+    "Mirlana": {
+      "level": 45,
+      "vocation": "Elite Knight"
+    },
+    "Rage Mage": {
+      "level": 19,
+      "vocation": "Sorcerer"
+    },
+    "Ryze": {
+      "level": 59,
+      "vocation": "Elder Druid"
+    },
+    "Sparkle Princess": {
+      "level": 24,
+      "vocation": "Elder Druid"
+    },
+    "Frank Horrigan": {
+      "level": 22,
+      "vocation": "Elite Knight"
+    },
+    "Skymus": {
+      "level": 42,
+      "vocation": "Elder Druid"
+    }
+  }
+}
