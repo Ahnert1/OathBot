@@ -3,15 +3,15 @@
 require('dotenv').config();
 
 const token = process.env.DISCORD_TOKEN;
-const clientId = process.env.DISCORD_CLIENT_ID;
-const guildId = process.env.DISCORD_GUILD_ID;
+const onlineChannelId = process.env.DISCORD_ONLINE_CHANNEL_ID;
+const dailyChannelId = process.env.DISCORD_DAILY_CHANNEL_ID;
 
 console.log('Environment check:');
 console.log('Token exists:', !!token);
-console.log('Client ID exists:', !!clientId);
-console.log('Guild ID exists:', !!guildId);
+console.log('Online channel ID exists:', !!onlineChannelId);
+console.log('Daily channel ID exists:', !!dailyChannelId);
 console.log('Token length:', token ? token.length : 0);
-const { Client, GatewayIntentBits, REST, Routes, SlashCommandBuilder } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 //const jsdom = require("jsdom");
 const axios = require('axios');
 const cheerio = require('cheerio');  // new addition
@@ -40,41 +40,38 @@ app.listen(port, () => {
 });
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds]
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 });
 
-// Define commands
-const commands = [
-    new SlashCommandBuilder()
-        .setName('ping')
-        .setDescription('Testing shit out'),
-    new SlashCommandBuilder()
-        .setName('online')
-        .setDescription('Sets up the guild status message that updates every 2 minutes'),
-    new SlashCommandBuilder()
-        .setName('dailytracking')
-        .setDescription('Sets up daily level tracking at 9am CST')
-].map(command => command.toJSON());
-
-// Register slash commands
-const rest = new REST({ version: '10' }).setToken(token);
-
-(async () => {
-    try {
-        console.log('Registering slash commands...');
-        await rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands });
-        console.log('Slash commands registered successfully!');
-    } catch (error) {
-        console.error(error);
-    }
-})();
-
-let statusMessage = null;
+let onlineMessage = null;
 let updateInterval = null;
-let dailyTrackingChannel = null;
+
+async function ensureMessageForChannel(channelId, initialContent) {
+    if (!channelId) {
+        console.warn('Missing channel ID for ensureMessageForChannel');
+        return null;
+    }
+    try {
+        const channel = await client.channels.fetch(channelId);
+        if (!channel || !channel.isTextBased()) {
+            console.error('Channel not found or not text-based:', channelId);
+            return null;
+        }
+        const fetched = await channel.messages.fetch({ limit: 5 });
+        const existing = fetched.find(msg => msg.author.id === client.user.id);
+        if (existing) return existing;
+        return await channel.send(initialContent);
+    } catch (error) {
+        console.error('Error ensuring message for channel', channelId, error);
+        return null;
+    }
+}
 
 async function updateGuildStatus() {
-    if (!statusMessage) return;
+    if (!onlineMessage) {
+        onlineMessage = await ensureMessageForChannel(onlineChannelId, '```\nSetting up guild status...```');
+        if (!onlineMessage) return;
+    }
 
     try {
 
@@ -126,10 +123,12 @@ async function updateGuildStatus() {
             response = '```\nToo many online players to display! Please try again later.```';
         }
 
-        await statusMessage.edit(response);
+        await onlineMessage.edit(response);
     } catch (error) {
         console.error('Error updating guild status:', error);
-        await statusMessage.edit('```\nError updating guild status. Please try again later.```');
+        if (onlineMessage) {
+            await onlineMessage.edit('```\nError updating guild status. Please try again later.```');
+        }
     }
 }
 
@@ -224,7 +223,6 @@ async function fetchAllPlayers() {
 }
 
 async function checkLevelProgress() {
-    if (!dailyTrackingChannel) return;
 
     try {
         const previousData = await getYesterdayPlayerLevels();
@@ -278,7 +276,16 @@ async function checkLevelProgress() {
         } catch (error) {
             console.error('Error saving progress report:', error);
         }
-        await dailyTrackingChannel.send(response);
+        try {
+            const channel = await client.channels.fetch(dailyChannelId);
+            if (!channel || !channel.isTextBased()) {
+                console.error('Daily channel not found or not text-based:', dailyChannelId);
+            } else {
+                await channel.send(response);
+            }
+        } catch (err) {
+            console.error('Error sending daily progress message:', err);
+        }
 
         await savePlayerLevels(currentPlayers);
     } catch (error) {
@@ -286,51 +293,33 @@ async function checkLevelProgress() {
     }
 }
 
-// Handle interaction events
-client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isCommand()) return;
-
-    if (interaction.commandName === 'online') {
-        await interaction.deferReply();
-
-        // Create initial message
-        statusMessage = await interaction.editReply('```\nSetting up guild status...```');
-
-        // Start the update interval if it's not already running
-        if (!updateInterval) {
-            updateInterval = setInterval(updateGuildStatus, 2 * 60 * 1000); // 2 minutes
-            // Run first update immediately
-            await updateGuildStatus();
-        }
-    } else if (interaction.commandName === 'dailytracking') {
-        await interaction.deferReply();
-
-        dailyTrackingChannel = interaction.channel;
-
-        // Schedule the daily check at 9:00:15 AM CST
-        cron.schedule('15 0 9 * * *', checkLevelProgress, {
-            timezone: 'America/Chicago'
-        });
-
-        // If last saved date is not today (America/Chicago), run progress check immediately; otherwise perform initial save
-        const previousData = await getYesterdayPlayerLevels();
-        const timeZone = 'America/Chicago';
-        const todayYmd = getYmdInTimeZone(new Date(), timeZone);
-        const lastSavedYmd = previousData?.timestamp ? getYmdInTimeZone(new Date(previousData.timestamp), timeZone) : null;
-
-        if (lastSavedYmd && lastSavedYmd !== todayYmd) {
-            await checkLevelProgress();
-        } else {
-            const players = await fetchAllPlayers();
-            await savePlayerLevels(players);
-        }
-
-        await interaction.editReply('Daily level tracking has been set up! Will post level progress every day at 9am CST.');
-    }
-});
-
-client.once('ready', () => {
+client.once('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`);
+
+    // Ensure online message exists, start interval, and run first update
+    onlineMessage = await ensureMessageForChannel(onlineChannelId, '```\nSetting up guild status...```');
+    if (!updateInterval) {
+        updateInterval = setInterval(updateGuildStatus, 2 * 60 * 1000); // 2 minutes
+    }
+    await updateGuildStatus();
+
+    // Schedule daily task (new message each time)
+    cron.schedule('15 0 9 * * *', checkLevelProgress, {
+        timezone: 'America/Chicago'
+    });
+
+    // Initialize daily tracking storage/run if needed
+    const previousData = await getYesterdayPlayerLevels();
+    const timeZone = 'America/Chicago';
+    const todayYmd = getYmdInTimeZone(new Date(), timeZone);
+    const lastSavedYmd = previousData?.timestamp ? getYmdInTimeZone(new Date(previousData.timestamp), timeZone) : null;
+
+    if (lastSavedYmd && lastSavedYmd !== todayYmd) {
+        await checkLevelProgress();
+    } else {
+        const players = await fetchAllPlayers();
+        await savePlayerLevels(players);
+    }
 });
 
 client.login(token);
