@@ -170,7 +170,7 @@ function currentTimestamp() {
     const year = now.getFullYear();
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
-    return `${day}/${month}/${year}, ${hours}:${minutes}`;
+    return `${month}/${day}/${year}, ${hours}:${minutes}`;
 }
 
 function getYmdInTimeZone(date, timeZone) {
